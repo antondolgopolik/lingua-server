@@ -1,15 +1,13 @@
 package by.bsuir.linguaserver.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
+import java.util.Collection;
 import java.util.UUID;
 
 @Entity
@@ -32,4 +30,8 @@ public class VideoContent {
     @NotNull
     @PositiveOrZero
     private Long prevMonthViews;
+    @ManyToMany
+    @JoinTable
+    private Collection<Genre> genres;
+
 }

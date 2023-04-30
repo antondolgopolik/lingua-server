@@ -22,8 +22,9 @@ public class User {
     @Column(unique = true)
     @NotNull
     private Long tgId;
-    @ManyToMany
     @JoinTable
-    private Collection<Role> roles;
+    @ElementCollection(targetClass = Role.class)
+    @Enumerated(EnumType.STRING)
+    Collection<Role> roles;
 
 }

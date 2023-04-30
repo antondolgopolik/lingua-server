@@ -34,6 +34,7 @@ public class UserFacade {
             user.setUsername(registerForm.getUsername());
             user.setPassword(passwordEncoder.encode(registerForm.getPassword()));
             user.setTgId(tgCode.get().getUserId());
+            user.setRoles(Collections.singleton(Role.ROLE_CLIENT));
             return Optional.of(userService.create(user));
         } else {
             return Optional.empty();

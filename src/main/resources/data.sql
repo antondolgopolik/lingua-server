@@ -3,13 +3,10 @@ insert into "user" values (102, '$2a$10$GYzwcRiC9Bizu35nyBHIpu4PWsmXuZhE8l12CFLW
 insert into "user" values (103, '$2a$10$6ZpeHyNi8peunxD2UP.ufu2eoAfgOiAfksgrIp11j2/ZO23WTzWzS', 3, 'user3');
 insert into "user" values (104, '$2a$10$fKQypoKx4y0UPJZSVG5x2OKL64DR9E2uz3L7Spt76Q7SBZrRBG3au', 4, 'user4');
 
-insert into "role" values (1, 'ROLE_CONTENT_MANAGER');
-insert into "role" values (2, 'ROLE_CLIENT');
-
-insert into "user_roles" values (101, 1);
-insert into "user_roles" values (102, 2);
-insert into "user_roles" values (103, 2);
-insert into "user_roles" values (104, 2);
+insert into "user_roles" values (101, 'ROLE_CONTENT_MANAGER');
+insert into "user_roles" values (102, 'ROLE_CLIENT');
+insert into "user_roles" values (103, 'ROLE_CLIENT');
+insert into "user_roles" values (104, 'ROLE_CLIENT');
 
 insert into "video_content" values ('b49373cc-e552-11ed-b5ea-0242ac120002', 'description 1', 100, 'name 1', 1, 10);
 insert into "video_content" values ('b4934dac-e552-11ed-b5ea-0242ac120002', 'description 2', 101, 'name 2', 2, 11);
@@ -31,3 +28,39 @@ insert into "video_content" values ('b4936da0-e552-11ed-b5ea-0242ac120002', 'des
 insert into "video_content" values ('b4936f30-e552-11ed-b5ea-0242ac120002', 'description 18', 117, 'name 18', 18, 27);
 insert into "video_content" values ('b49370b6-e552-11ed-b5ea-0242ac120002', 'description 19', 118, 'name 19', 19, 28);
 insert into "video_content" values ('b4937246-e552-11ed-b5ea-0242ac120002', 'description 20', 119, 'name 20', 20, 29);
+
+insert into "genre" values (101, 'Action');
+insert into "genre" values (102, 'Animation');
+insert into "genre" values (103, 'Comedy');
+insert into "genre" values (104, 'Crime');
+insert into "genre" values (105, 'Drama');
+insert into "genre" values (106, 'Fantasy');
+insert into "genre" values (107, 'Historical');
+insert into "genre" values (108, 'Horror');
+insert into "genre" values (109, 'Romance');
+insert into "genre" values (110, 'Science fiction');
+
+insert into "video_content_genres" values ('b4937246-e552-11ed-b5ea-0242ac120002', 101);
+insert into "video_content_genres" values ('b4937246-e552-11ed-b5ea-0242ac120002', 102);
+insert into "video_content_genres" values ('b4937246-e552-11ed-b5ea-0242ac120002', 103);
+insert into "video_content_genres" values ('b4937246-e552-11ed-b5ea-0242ac120002', 104);
+insert into "video_content_genres" values ('b49370b6-e552-11ed-b5ea-0242ac120002', 105);
+insert into "video_content_genres" values ('b49370b6-e552-11ed-b5ea-0242ac120002', 106);
+insert into "video_content_genres" values ('b49370b6-e552-11ed-b5ea-0242ac120002', 107);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

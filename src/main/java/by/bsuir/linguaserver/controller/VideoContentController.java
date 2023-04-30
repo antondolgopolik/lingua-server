@@ -1,8 +1,9 @@
 package by.bsuir.linguaserver.controller;
 
 import by.bsuir.linguaserver.converter.impl.VideoContentToCatalogItemDtoConverter;
+import by.bsuir.linguaserver.converter.impl.VideoContentToVideoContentDetailsDtoConverter;
 import by.bsuir.linguaserver.dto.CatalogItemDto;
-import by.bsuir.linguaserver.entity.VideoContent;
+import by.bsuir.linguaserver.dto.VideoContentDetailsDto;
 import by.bsuir.linguaserver.repository.VideoContentRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -19,11 +20,14 @@ public class VideoContentController {
 
     private final VideoContentRepository videoContentRepository;
     private final VideoContentToCatalogItemDtoConverter videoContentToCatalogItemDtoConverter;
+    private final VideoContentToVideoContentDetailsDtoConverter videoContentToVideoContentDetailsDtoConverter;
 
     public VideoContentController(VideoContentRepository videoContentRepository,
-                                  VideoContentToCatalogItemDtoConverter videoContentToCatalogItemDtoConverter) {
+                                  VideoContentToCatalogItemDtoConverter videoContentToCatalogItemDtoConverter,
+                                  VideoContentToVideoContentDetailsDtoConverter videoContentToVideoContentDetailsDtoConverter) {
         this.videoContentRepository = videoContentRepository;
         this.videoContentToCatalogItemDtoConverter = videoContentToCatalogItemDtoConverter;
+        this.videoContentToVideoContentDetailsDtoConverter = videoContentToVideoContentDetailsDtoConverter;
     }
 
     @GetMapping("/most-viewed")
@@ -38,9 +42,10 @@ public class VideoContentController {
     }
 
     @GetMapping("/{videoContentId}")
-    public ResponseEntity<VideoContent> getVideoContent(@PathVariable String videoContentId) {
+    public ResponseEntity<VideoContentDetailsDto> getVideoContent(@PathVariable String videoContentId) {
         UUID uuid = UUID.fromString(videoContentId);
         return videoContentRepository.findById(uuid)
+                .map(videoContentToVideoContentDetailsDtoConverter::convert)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }

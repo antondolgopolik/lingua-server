@@ -2,6 +2,7 @@ package by.bsuir.linguaserver.converter.impl;
 
 import by.bsuir.linguaserver.converter.Converter;
 import by.bsuir.linguaserver.dto.CatalogItemDto;
+import by.bsuir.linguaserver.entity.Genre;
 import by.bsuir.linguaserver.entity.VideoContent;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,9 @@ public class VideoContentToCatalogItemDtoConverter implements Converter<VideoCon
         CatalogItemDto catalogItemDto = new CatalogItemDto();
         catalogItemDto.setId(object.getId().toString());
         catalogItemDto.setName(object.getName());
+        catalogItemDto.setDuration(object.getDuration());
         catalogItemDto.setViews(object.getViews());
+        catalogItemDto.setGenres(object.getGenres().stream().map(Genre::getName).toList());
         return catalogItemDto;
     }
 }
