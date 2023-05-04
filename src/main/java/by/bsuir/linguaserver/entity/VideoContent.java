@@ -34,5 +34,7 @@ public class VideoContent {
     @ManyToMany
     @JoinTable
     private Collection<Genre> genres;
+    @OneToMany
+    private Collection<VideoContentLoc> videoContentLocs;
 
 }

@@ -16,7 +16,7 @@ public class VideoContentToCatalogItemDtoConverter implements Converter<VideoCon
         catalogItemDto.setName(object.getName());
         catalogItemDto.setDuration(object.getDuration());
         catalogItemDto.setViews(object.getViews());
-        catalogItemDto.setGenres(object.getGenres().stream().map(Genre::getName).toList());
+        catalogItemDto.setGenres(object.getGenres());
         return catalogItemDto;
     }
 }

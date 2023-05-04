@@ -17,7 +17,8 @@ public class VideoContentToVideoContentDetailsDtoConverter implements Converter<
         videoContentDetailsDto.setDescription(object.getDescription());
         videoContentDetailsDto.setDuration(object.getDuration());
         videoContentDetailsDto.setViews(object.getViews());
-        videoContentDetailsDto.setGenres(object.getGenres().stream().map(Genre::getName).toList());
+        videoContentDetailsDto.setGenres(object.getGenres());
+        videoContentDetailsDto.setVideoContentLocs(object.getVideoContentLocs());
         return videoContentDetailsDto;
     }
 }

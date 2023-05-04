@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/videocontent")
+@RequestMapping("/api/video-content")
 public class VideoContentController {
 
     private final VideoContentRepository videoContentRepository;
@@ -41,7 +41,6 @@ public class VideoContentController {
 
     @GetMapping("/{videoContentId}")
     public ResponseEntity<VideoContentDetailsDto> getVideoContent(@PathVariable String videoContentId) {
-
         UUID uuid = UUID.fromString(videoContentId);
         return videoContentRepository.findById(uuid)
                 .map(videoContentToVideoContentDetailsDtoConverter::convert)

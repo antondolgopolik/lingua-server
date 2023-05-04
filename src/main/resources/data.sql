@@ -21,7 +21,9 @@ values ('b49373cc-e552-11ed-b5ea-0242ac120002',
         'An ancient Ring thought lost for centuries has been found, and through a strange twist of fate has been given to a small Hobbit named Frodo. When Gandalf discovers the Ring is in fact the One Ring of the Dark Lord Sauron, Frodo must make an epic quest to the Cracks of Doom in order to destroy it. However, he does not go alone. He is joined by Gandalf, Legolas the elf, Gimli the Dwarf, Aragorn, Boromir, and his three Hobbit friends Merry, Pippin, and Samwise. Through mountains, snow, darkness, forests, rivers and plains, facing evil and danger at every corner the Fellowship of the Ring must go. Their quest to destroy the One Ring is the only hope for the end of the Dark Lords reign.',
         178, 'The Lord of the Rings: The Fellowship of the Ring', 1000, 12345);
 insert into "video_content"
-values ('b4934dac-e552-11ed-b5ea-0242ac120002', 'description 2', 101, 'name 2', 2, 11);
+values ('b4934dac-e552-11ed-b5ea-0242ac120002',
+        'It is based on the real life story of legendary cryptanalyst Alan Turing. The film portrays the nail-biting race against time by Turing and his brilliant team of code-breakers at Britain''s top-secret Government Code and Cypher School at Bletchley Park, during the darkest days of World War II.',
+        114, 'The Imitation Game', 100000, 1000000);
 insert into "video_content"
 values ('b49350cc-e552-11ed-b5ea-0242ac120002', 'description 3', 102, 'name 3', 3, 12);
 insert into "video_content"
@@ -79,6 +81,12 @@ insert into "genre"
 values (109, 'Romance');
 insert into "genre"
 values (110, 'Science fiction');
+insert into "genre"
+values (111, 'Biography');
+insert into "genre"
+values (112, 'Thriller');
+insert into "genre"
+values (113, 'War');
 
 insert into "video_content_genres"
 values ('b4937246-e552-11ed-b5ea-0242ac120002', 101);
@@ -94,12 +102,65 @@ insert into "video_content_genres"
 values ('b49370b6-e552-11ed-b5ea-0242ac120002', 106);
 insert into "video_content_genres"
 values ('b49370b6-e552-11ed-b5ea-0242ac120002', 107);
+insert into "video_content_genres"
+values ('b4934dac-e552-11ed-b5ea-0242ac120002', 105);
+insert into "video_content_genres"
+values ('b4934dac-e552-11ed-b5ea-0242ac120002', 111);
+insert into "video_content_genres"
+values ('b4934dac-e552-11ed-b5ea-0242ac120002', 112);
+insert into "video_content_genres"
+values ('b4934dac-e552-11ed-b5ea-0242ac120002', 113);
 
+insert into "language"
+values (11, 'English', 'en');
+insert into "language"
+values (12, 'Russian', 'ru');
+insert into "language"
+values (13, 'French', 'fr');
 
+insert into "video_content_loc"
+values ('adf91fd4-e7e2-11ed-a05b-0242ac120003', 11);
+insert into "video_content_loc"
+values ('adf92330-e7e2-11ed-a05b-0242ac120003', 12);
+insert into "video_content_loc"
+values ('adf9247a-e7e2-11ed-a05b-0242ac120003', 13);
+insert into "video_content_loc"
+values ('84f8f4e2-e855-11ed-a05b-0242ac120003', 11);
+insert into "video_content_loc"
+values ('84f900cc-e855-11ed-a05b-0242ac120003', 12);
+insert into "video_content_loc"
+values ('84f901f8-e855-11ed-a05b-0242ac120003', 13);
 
+insert into "video_content_video_content_locs"
+values ('b49373cc-e552-11ed-b5ea-0242ac120002', 'adf91fd4-e7e2-11ed-a05b-0242ac120003');
+insert into "video_content_video_content_locs"
+values ('b49373cc-e552-11ed-b5ea-0242ac120002', 'adf92330-e7e2-11ed-a05b-0242ac120003');
+insert into "video_content_video_content_locs"
+values ('b49373cc-e552-11ed-b5ea-0242ac120002', 'adf9247a-e7e2-11ed-a05b-0242ac120003');
+insert into "video_content_video_content_locs"
+values ('b4934dac-e552-11ed-b5ea-0242ac120002', '84f8f4e2-e855-11ed-a05b-0242ac120003');
+insert into "video_content_video_content_locs"
+values ('b4934dac-e552-11ed-b5ea-0242ac120002', '84f900cc-e855-11ed-a05b-0242ac120003');
+insert into "video_content_video_content_locs"
+values ('b4934dac-e552-11ed-b5ea-0242ac120002', '84f901f8-e855-11ed-a05b-0242ac120003');
 
+insert into "subtitle"
+values ('4c0225a4-e7e3-11ed-a05b-0242ac120003', 12);
+insert into "subtitle"
+values ('4c0229be-e7e3-11ed-a05b-0242ac120003', 13);
+insert into "subtitle"
+values ('4868d1b8-e856-11ed-a05b-0242ac120003', 12);
+insert into "subtitle"
+values ('4868d5d2-e856-11ed-a05b-0242ac120003', 13);
 
-
+insert into "video_content_loc_subtitles"
+values ('adf91fd4-e7e2-11ed-a05b-0242ac120003', '4c0225a4-e7e3-11ed-a05b-0242ac120003');
+insert into "video_content_loc_subtitles"
+values ('adf91fd4-e7e2-11ed-a05b-0242ac120003', '4c0229be-e7e3-11ed-a05b-0242ac120003');
+insert into "video_content_loc_subtitles"
+values ('84f8f4e2-e855-11ed-a05b-0242ac120003', '4868d1b8-e856-11ed-a05b-0242ac120003');
+insert into "video_content_loc_subtitles"
+values ('84f8f4e2-e855-11ed-a05b-0242ac120003', '4868d5d2-e856-11ed-a05b-0242ac120003');
 
 
 

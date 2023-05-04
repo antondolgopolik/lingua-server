@@ -1,8 +1,9 @@
 package by.bsuir.linguaserver.dto;
 
+import by.bsuir.linguaserver.entity.Genre;
 import lombok.Data;
 
-import java.util.List;
+import java.util.Collection;
 
 @Data
 public class CatalogItemDto {
@@ -11,6 +12,5 @@ public class CatalogItemDto {
     private String name;
     private Integer duration;
     private Long views;
-    private List<String> genres;
-
+    private Collection<Genre> genres;
 }
