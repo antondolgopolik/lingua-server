@@ -10,7 +10,6 @@ import lombok.Data;
 @Entity
 @Data
 public class Language {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -18,5 +17,4 @@ public class Language {
     private String name;
     @NotBlank
     private String tag;
-
 }

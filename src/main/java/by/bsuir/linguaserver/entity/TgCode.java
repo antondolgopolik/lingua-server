@@ -9,11 +9,9 @@ import lombok.Data;
 @Entity
 @Data
 public class TgCode {
-
     @Id
     private Long userId;
     @Column(unique = true)
     @NotBlank
     private String code;
-
 }

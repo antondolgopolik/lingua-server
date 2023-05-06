@@ -10,11 +10,9 @@ import lombok.Data;
 @Entity
 @Data
 public class Genre {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotBlank
     private String name;
-
 }

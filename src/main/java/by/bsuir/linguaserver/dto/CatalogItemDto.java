@@ -7,7 +7,6 @@ import java.util.Collection;
 
 @Data
 public class CatalogItemDto {
-
     private String id;
     private String name;
     private Integer duration;

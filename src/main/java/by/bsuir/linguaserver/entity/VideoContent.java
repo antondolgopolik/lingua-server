@@ -13,7 +13,6 @@ import java.util.UUID;
 @Entity
 @Data
 public class VideoContent {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -36,5 +35,4 @@ public class VideoContent {
     private Collection<Genre> genres;
     @OneToMany
     private Collection<VideoContentLoc> videoContentLocs;
-
 }

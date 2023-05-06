@@ -10,7 +10,6 @@ import java.util.Collection;
 @Entity
 @Data
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -26,5 +25,4 @@ public class User {
     @ElementCollection(targetClass = Role.class)
     @Enumerated(EnumType.STRING)
     Collection<Role> roles;
-
 }

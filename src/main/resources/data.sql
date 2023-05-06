@@ -119,17 +119,17 @@ insert into "language"
 values (13, 'French', 'fr');
 
 insert into "video_content_loc"
-values ('adf91fd4-e7e2-11ed-a05b-0242ac120003', 11);
+values ('adf91fd4-e7e2-11ed-a05b-0242ac120003', 11, 'b49373cc-e552-11ed-b5ea-0242ac120002');
 insert into "video_content_loc"
-values ('adf92330-e7e2-11ed-a05b-0242ac120003', 12);
+values ('adf92330-e7e2-11ed-a05b-0242ac120003', 12, 'b49373cc-e552-11ed-b5ea-0242ac120002');
 insert into "video_content_loc"
-values ('adf9247a-e7e2-11ed-a05b-0242ac120003', 13);
+values ('adf9247a-e7e2-11ed-a05b-0242ac120003', 13, 'b49373cc-e552-11ed-b5ea-0242ac120002');
 insert into "video_content_loc"
-values ('84f8f4e2-e855-11ed-a05b-0242ac120003', 11);
+values ('84f8f4e2-e855-11ed-a05b-0242ac120003', 11, 'b4934dac-e552-11ed-b5ea-0242ac120002');
 insert into "video_content_loc"
-values ('84f900cc-e855-11ed-a05b-0242ac120003', 12);
+values ('84f900cc-e855-11ed-a05b-0242ac120003', 12, 'b4934dac-e552-11ed-b5ea-0242ac120002');
 insert into "video_content_loc"
-values ('84f901f8-e855-11ed-a05b-0242ac120003', 13);
+values ('84f901f8-e855-11ed-a05b-0242ac120003', 13, 'b4934dac-e552-11ed-b5ea-0242ac120002');
 
 insert into "video_content_video_content_locs"
 values ('b49373cc-e552-11ed-b5ea-0242ac120002', 'adf91fd4-e7e2-11ed-a05b-0242ac120003');
@@ -161,6 +161,9 @@ insert into "video_content_loc_subtitles"
 values ('84f8f4e2-e855-11ed-a05b-0242ac120003', '4868d1b8-e856-11ed-a05b-0242ac120003');
 insert into "video_content_loc_subtitles"
 values ('84f8f4e2-e855-11ed-a05b-0242ac120003', '4868d5d2-e856-11ed-a05b-0242ac120003');
+
+insert into "duo_watch_request"
+values (101, now(), 'OPEN', now(), 103, 12, '84f8f4e2-e855-11ed-a05b-0242ac120003')
 
 
 

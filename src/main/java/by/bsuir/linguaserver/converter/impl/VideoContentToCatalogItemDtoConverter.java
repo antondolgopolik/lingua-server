@@ -11,12 +11,12 @@ public class VideoContentToCatalogItemDtoConverter implements Converter<VideoCon
 
     @Override
     public CatalogItemDto convert(VideoContent object) {
-        CatalogItemDto catalogItemDto = new CatalogItemDto();
-        catalogItemDto.setId(object.getId().toString());
-        catalogItemDto.setName(object.getName());
-        catalogItemDto.setDuration(object.getDuration());
-        catalogItemDto.setViews(object.getViews());
-        catalogItemDto.setGenres(object.getGenres());
-        return catalogItemDto;
+        var result = new CatalogItemDto();
+        result.setId(object.getId().toString());
+        result.setName(object.getName());
+        result.setDuration(object.getDuration());
+        result.setViews(object.getViews());
+        result.setGenres(object.getGenres());
+        return result;
     }
 }
