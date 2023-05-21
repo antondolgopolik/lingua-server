@@ -2,6 +2,8 @@ package by.bsuir.linguaserver.controller;
 
 import by.bsuir.linguaserver.dto.CreateDuoWatchRequestFormDto;
 import by.bsuir.linguaserver.dto.DuoWatchRequestCatalogItemPageDto;
+import by.bsuir.linguaserver.dto.PersonalDuoWatchRequestPageDto;
+import by.bsuir.linguaserver.entity.DuoWatchRequestStatus;
 import by.bsuir.linguaserver.facade.DuoWatchRequestFacade;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -27,14 +29,24 @@ public class DuoWatchRequestController {
         duoWatchRequestFacade.createDuoWatchRequest(username, videoContentLocId, secondLanguageId);
     }
 
-    @GetMapping("/search")
-    public DuoWatchRequestCatalogItemPageDto searchDuoWatchRequests(@RequestParam(defaultValue = "") String q,
-                                                                    @RequestParam(required = false) Long videoContentLang,
-                                                                    @RequestParam(required = false) Long secondLang,
-                                                                    @RequestParam(defaultValue = "0") Integer p,
-                                                                    @RequestParam(defaultValue = "15") Integer s,
-                                                                    Authentication authentication) {
-        return duoWatchRequestFacade.searchDuoWatchRequests(authentication.getName(), q, videoContentLang, secondLang, p, s);
+    @GetMapping("/catalog/search")
+    public DuoWatchRequestCatalogItemPageDto catalogSearchDuoWatchRequests(@RequestParam(defaultValue = "") String q,
+                                                                           @RequestParam(required = false) Long videoContentLang,
+                                                                           @RequestParam(required = false) Long secondLang,
+                                                                           @RequestParam(defaultValue = "0") Integer p,
+                                                                           @RequestParam(defaultValue = "15") Integer s,
+                                                                           Authentication authentication) {
+        return duoWatchRequestFacade.catalogSearchDuoWatchRequests(authentication.getName(), q, videoContentLang, secondLang, p, s);
+    }
+
+    @GetMapping("/personal/search")
+    public PersonalDuoWatchRequestPageDto personalSearchDuoWatchRequests(@RequestParam(defaultValue = "") String q,
+                                                                         @RequestParam(defaultValue = "true") Boolean owner,
+                                                                         @RequestParam(required = false) DuoWatchRequestStatus status,
+                                                                         @RequestParam(defaultValue = "0") Integer p,
+                                                                         @RequestParam(defaultValue = "15") Integer s,
+                                                                         Authentication authentication) {
+        return duoWatchRequestFacade.personalSearchDuoWatchRequests(authentication.getName(), q, owner, status, p, s);
     }
 
     @PostMapping("/{duoWatchRequestId}/accept")

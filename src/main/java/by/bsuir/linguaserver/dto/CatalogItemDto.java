@@ -9,6 +9,7 @@ import java.util.Collection;
 public class CatalogItemDto {
     private String id;
     private String name;
+    private String shortDescription;
     private Integer duration;
     private Long views;
     private Collection<Genre> genres;

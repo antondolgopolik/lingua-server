@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class TgCode {
     @Id
-    private Long userId;
+    private Long chatId;
     @Column(unique = true)
     @NotBlank
     private String code;

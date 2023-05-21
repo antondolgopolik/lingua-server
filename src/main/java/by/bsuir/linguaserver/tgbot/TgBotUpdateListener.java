@@ -47,7 +47,7 @@ public class TgBotUpdateListener implements UpdatesListener {
 
     private String prepareResponse(Message message) {
         if (Objects.equals(message.text(), "/code")) {
-            return tgCodeService.create(message.from()).getCode();
+            return tgCodeService.create(message.chat()).getCode();
         } else {
             return "Unknown command";
         }

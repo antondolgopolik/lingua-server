@@ -2,7 +2,7 @@ package by.bsuir.linguaserver.service;
 
 import by.bsuir.linguaserver.entity.TgCode;
 import by.bsuir.linguaserver.repository.TgCodeRepository;
-import com.pengrad.telegrambot.model.User;
+import com.pengrad.telegrambot.model.Chat;
 import jakarta.persistence.PersistenceException;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +20,9 @@ public class TgCodeService {
         this.tgCodeRepository = tgCodeRepository;
     }
 
-    public TgCode create(User user) {
+    public TgCode create(Chat chat) {
         TgCode tgCode = new TgCode();
-        tgCode.setUserId(user.id());
+        tgCode.setChatId(chat.id());
         boolean persisted = false;
         while (!persisted) {
             try {
@@ -36,6 +36,6 @@ public class TgCodeService {
     }
 
     public Optional<TgCode> find(String code) {
-        return tgCodeRepository.findOneByCode(code);
+        return tgCodeRepository.findByCode(code);
     }
 }

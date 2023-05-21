@@ -50,7 +50,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/auth").permitAll()
                 .requestMatchers("/api/register", "/api/login").anonymous()
-                .requestMatchers("/api/**").authenticated()
+                .requestMatchers("/api/**", "/ws/**", "/app/**").authenticated()
                 .anyRequest().denyAll()
                 .and()
                 .sessionManagement()

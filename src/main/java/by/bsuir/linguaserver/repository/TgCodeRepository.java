@@ -9,9 +9,7 @@ import java.util.Optional;
 
 public interface TgCodeRepository extends JpaRepository<TgCode, Long> {
 
-    @Query("select tc from TgCode tc where tc.userId = :userId")
-    Optional<TgCode> findOneByUserId(@Param("userId") Long userId);
+    Optional<TgCode> findByChatId(Long chatId);
 
-    @Query("select tc from TgCode tc where tc.code = :code")
-    Optional<TgCode> findOneByCode(@Param("code") String code);
+    Optional<TgCode> findByCode(String code);
 }

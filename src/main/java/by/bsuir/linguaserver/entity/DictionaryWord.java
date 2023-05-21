@@ -5,24 +5,22 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import java.util.Collection;
-
 @Entity
 @Data
-public class User {
+public class DictionaryWord {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(unique = true)
+    @ManyToOne
+    private Dictionary dictionary;
     @NotBlank
-    private String username;
+    private String firstLanguageText;
     @NotBlank
-    private String passwordHash;
-    @Column(unique = true)
+    private String secondLanguageText;
+    @NotBlank
+    private String transcription;
     @NotNull
-    private Long chatId;
-    @JoinTable
-    @ElementCollection(targetClass = Role.class)
-    @Enumerated(EnumType.STRING)
-    Collection<Role> roles;
+    private Integer repetitions;
+    @NotNull
+    private Integer correctRepetitions;
 }

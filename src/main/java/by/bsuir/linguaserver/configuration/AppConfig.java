@@ -1,6 +1,9 @@
 package by.bsuir.linguaserver.configuration;
 
 import by.bsuir.linguaserver.tgbot.TgBotUpdateListener;
+import com.fasterxml.jackson.databind.Module;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.request.GetUpdates;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +32,15 @@ public class AppConfig {
         filter.setMaxPayloadLength(10000);
         filter.setIncludeHeaders(false);
         return filter;
+    }
+
+    @Bean
+    public Module javaTimeModule() {
+        return new JavaTimeModule();
+    }
+
+    @Bean
+    public Module jdk8Module() {
+        return new Jdk8Module();
     }
 }

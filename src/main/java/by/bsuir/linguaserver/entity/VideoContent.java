@@ -18,7 +18,10 @@ public class VideoContent {
     private UUID id;
     @NotBlank
     private String name;
-    @Column(length = 1024)
+    @Column(length = 1000)
+    @NotBlank
+    private String shortDescription;
+    @Column(length = 2500)
     @NotBlank
     private String description;
     @NotNull

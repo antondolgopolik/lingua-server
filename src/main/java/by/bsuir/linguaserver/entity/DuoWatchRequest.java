@@ -25,6 +25,6 @@ public class DuoWatchRequest {
     private LocalDate updatedAt;
     @Enumerated(EnumType.STRING)
     private DuoWatchRequestStatus status;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Collection<DuoWatchResponse> duoWatchResponses;
 }

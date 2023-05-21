@@ -14,6 +14,7 @@ public class VideoContentToCatalogItemDtoConverter implements Converter<VideoCon
         var result = new CatalogItemDto();
         result.setId(object.getId().toString());
         result.setName(object.getName());
+        result.setShortDescription(object.getShortDescription());
         result.setDuration(object.getDuration());
         result.setViews(object.getViews());
         result.setGenres(object.getGenres());
