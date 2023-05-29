@@ -1,21 +1,21 @@
 package by.bsuir.linguaserver.converter.impl;
 
 import by.bsuir.linguaserver.converter.Converter;
-import by.bsuir.linguaserver.dto.CatalogItemDto;
+import by.bsuir.linguaserver.dto.VideoContentEditFormDto;
 import by.bsuir.linguaserver.entity.VideoContent;
 import org.springframework.stereotype.Component;
 
 @Component
-public class VideoContentToCatalogItemDtoConverter implements Converter<VideoContent, CatalogItemDto> {
+public class VideoContentToVideoContentEditFormDtoConverter implements Converter<VideoContent, VideoContentEditFormDto> {
 
     @Override
-    public CatalogItemDto convert(VideoContent object) {
-        var result = new CatalogItemDto();
+    public VideoContentEditFormDto convert(VideoContent object) {
+        var result = new VideoContentEditFormDto();
         result.setId(object.getId());
         result.setName(object.getName());
         result.setShortDescription(object.getShortDescription());
+        result.setDescription(object.getDescription());
         result.setDuration(object.getDuration());
-        result.setViews(object.getViews());
         result.setGenres(object.getGenres());
         return result;
     }

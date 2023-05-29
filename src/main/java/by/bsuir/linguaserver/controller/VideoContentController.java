@@ -2,8 +2,10 @@ package by.bsuir.linguaserver.controller;
 
 import by.bsuir.linguaserver.converter.impl.VideoContentPageToCatalogItemPageDtoConverter;
 import by.bsuir.linguaserver.converter.impl.VideoContentToVideoContentDetailsDtoConverter;
+import by.bsuir.linguaserver.converter.impl.VideoContentToVideoContentEditFormDtoConverter;
 import by.bsuir.linguaserver.dto.CatalogItemPageDto;
 import by.bsuir.linguaserver.dto.VideoContentDetailsDto;
+import by.bsuir.linguaserver.dto.VideoContentEditFormDto;
 import by.bsuir.linguaserver.repository.VideoContentRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -20,13 +22,16 @@ public class VideoContentController {
     private final VideoContentRepository videoContentRepository;
     private final VideoContentPageToCatalogItemPageDtoConverter videoContentPageToCatalogItemPageDtoConverter;
     private final VideoContentToVideoContentDetailsDtoConverter videoContentToVideoContentDetailsDtoConverter;
+    private final VideoContentToVideoContentEditFormDtoConverter videoContentToVideoContentEditFormDtoConverter;
 
     public VideoContentController(VideoContentRepository videoContentRepository,
                                   VideoContentPageToCatalogItemPageDtoConverter videoContentPageToCatalogItemPageDtoConverter,
-                                  VideoContentToVideoContentDetailsDtoConverter videoContentToVideoContentDetailsDtoConverter) {
+                                  VideoContentToVideoContentDetailsDtoConverter videoContentToVideoContentDetailsDtoConverter,
+                                  VideoContentToVideoContentEditFormDtoConverter videoContentToVideoContentEditFormDtoConverter) {
         this.videoContentRepository = videoContentRepository;
         this.videoContentPageToCatalogItemPageDtoConverter = videoContentPageToCatalogItemPageDtoConverter;
         this.videoContentToVideoContentDetailsDtoConverter = videoContentToVideoContentDetailsDtoConverter;
+        this.videoContentToVideoContentEditFormDtoConverter = videoContentToVideoContentEditFormDtoConverter;
     }
 
     @GetMapping("/search")
@@ -44,6 +49,15 @@ public class VideoContentController {
         UUID uuid = UUID.fromString(videoContentId);
         return videoContentRepository.findById(uuid)
                 .map(videoContentToVideoContentDetailsDtoConverter::convert)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+
+    @GetMapping("/{videoContentId}/edit")
+    public ResponseEntity<VideoContentEditFormDto> getVideoContentEditForm(@PathVariable String videoContentId) {
+        UUID uuid = UUID.fromString(videoContentId);
+        return videoContentRepository.findById(uuid)
+                .map(videoContentToVideoContentEditFormDtoConverter::convert)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }

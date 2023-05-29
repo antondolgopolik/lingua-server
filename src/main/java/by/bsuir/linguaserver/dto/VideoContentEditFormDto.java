@@ -7,11 +7,11 @@ import java.util.Collection;
 import java.util.UUID;
 
 @Data
-public class CatalogItemDto {
+public class VideoContentEditFormDto {
     private UUID id;
     private String name;
     private String shortDescription;
+    private String description;
     private Integer duration;
-    private Long views;
     private Collection<Genre> genres;
 }

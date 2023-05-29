@@ -29,7 +29,9 @@ values ('b4934dac-e552-11ed-b5ea-0242ac120002',
         'It is based on the real life story of legendary cryptanalyst Alan Turing. The film portrays the nail-biting race against time by Turing and his brilliant team of code-breakers at Britain''s top-secret Government Code and Cypher School at Bletchley Park, during the darkest days of World War II.',
         1000000);
 insert into "video_content"
-values ('b49350cc-e552-11ed-b5ea-0242ac120002', 'description 3', 102, 'Harry Potter and the Half-Blood Prince', 300,
+values ('b49350cc-e552-11ed-b5ea-0242ac120002',
+        'During Harry Potter''s sixth year at Hogwarts, he finds a book that once belonged to the mysterious Half-Blood Prince that earns him the respect of his new Potions professor Horace Slughorn. In addition, Dumbledore must prepare Harry for the ultimate final confrontation by finding out the secret behind Voldemort''s power. Meanwhile, a hidden enemy waits in the shadows to carry out a mission given to him by the Dark Lord.',
+        143, 'Harry Potter and the Half-Blood Prince', 300,
         'During Harry Potter''s sixth year at Hogwarts, he finds a book that once belonged to the mysterious Half-Blood Prince that earns him the respect of his new Potions professor Horace Slughorn. In addition, Dumbledore must prepare Harry for the ultimate final confrontation by finding out the secret behind Voldemort''s power. Meanwhile, a hidden enemy waits in the shadows to carry out a mission given to him by the Dark Lord.',
         12121);
 insert into "video_content"
@@ -146,6 +148,12 @@ insert into "video_content_loc"
 values ('84f900cc-e855-11ed-a05b-0242ac120003', 12, 'b4934dac-e552-11ed-b5ea-0242ac120002');
 insert into "video_content_loc"
 values ('84f901f8-e855-11ed-a05b-0242ac120003', 13, 'b4934dac-e552-11ed-b5ea-0242ac120002');
+insert into "video_content_loc"
+values ('591a9312-fc1e-11ed-be56-0242ac120002', 11, 'b49350cc-e552-11ed-b5ea-0242ac120002');
+insert into "video_content_loc"
+values ('591a9894-fc1e-11ed-be56-0242ac120002', 12, 'b49350cc-e552-11ed-b5ea-0242ac120002');
+insert into "video_content_loc"
+values ('591a998e-fc1e-11ed-be56-0242ac120002', 13, 'b49350cc-e552-11ed-b5ea-0242ac120002');
 
 insert into "video_content_video_content_locs"
 values ('b49373cc-e552-11ed-b5ea-0242ac120002', 'adf91fd4-e7e2-11ed-a05b-0242ac120003');
@@ -159,6 +167,12 @@ insert into "video_content_video_content_locs"
 values ('b4934dac-e552-11ed-b5ea-0242ac120002', '84f900cc-e855-11ed-a05b-0242ac120003');
 insert into "video_content_video_content_locs"
 values ('b4934dac-e552-11ed-b5ea-0242ac120002', '84f901f8-e855-11ed-a05b-0242ac120003');
+insert into "video_content_video_content_locs"
+values ('b49350cc-e552-11ed-b5ea-0242ac120002', '591a9312-fc1e-11ed-be56-0242ac120002');
+insert into "video_content_video_content_locs"
+values ('b49350cc-e552-11ed-b5ea-0242ac120002', '591a9894-fc1e-11ed-be56-0242ac120002');
+insert into "video_content_video_content_locs"
+values ('b49350cc-e552-11ed-b5ea-0242ac120002', '591a998e-fc1e-11ed-be56-0242ac120002');
 
 insert into "subtitle"
 values ('4c0225a4-e7e3-11ed-a05b-0242ac120003', 12);
@@ -168,6 +182,10 @@ insert into "subtitle"
 values ('4868d1b8-e856-11ed-a05b-0242ac120003', 12);
 insert into "subtitle"
 values ('4868d5d2-e856-11ed-a05b-0242ac120003', 13);
+insert into "subtitle"
+values ('ca471772-fc1e-11ed-be56-0242ac120002', 12);
+insert into "subtitle"
+values ('ca4719e8-fc1e-11ed-be56-0242ac120002', 13);
 
 insert into "video_content_loc_subtitles"
 values ('adf91fd4-e7e2-11ed-a05b-0242ac120003', '4c0225a4-e7e3-11ed-a05b-0242ac120003');
@@ -177,9 +195,17 @@ insert into "video_content_loc_subtitles"
 values ('84f8f4e2-e855-11ed-a05b-0242ac120003', '4868d1b8-e856-11ed-a05b-0242ac120003');
 insert into "video_content_loc_subtitles"
 values ('84f8f4e2-e855-11ed-a05b-0242ac120003', '4868d5d2-e856-11ed-a05b-0242ac120003');
+insert into "video_content_loc_subtitles"
+values ('591a9312-fc1e-11ed-be56-0242ac120002', 'ca471772-fc1e-11ed-be56-0242ac120002');
+insert into "video_content_loc_subtitles"
+values ('591a9312-fc1e-11ed-be56-0242ac120002', 'ca4719e8-fc1e-11ed-be56-0242ac120002');
 
 insert into "duo_watch_request"
-values (101, now(), 'OPEN', now(), 103, 12, '84f8f4e2-e855-11ed-a05b-0242ac120003');
+values (101, now(), 'OPEN', now(), 103, 12, 'adf91fd4-e7e2-11ed-a05b-0242ac120003');
+insert into "duo_watch_request"
+values (102, now(), 'OPEN', now(), 103, 12, '84f8f4e2-e855-11ed-a05b-0242ac120003');
+insert into "duo_watch_request"
+values (103, now(), 'OPEN', now(), 103, 12, '591a9312-fc1e-11ed-be56-0242ac120002');
 
 insert into "dictionary"
 values (101, 'Dictionary 1', 11, 102, 12);
@@ -197,11 +223,11 @@ values (101, 7, 'hello', 23, 'привет', '/heˈloʊ/', 101);
 insert into "dictionary_word"
 values (102, 17, 'world', 25, 'мир', '/wɝːld/', 101);
 insert into "dictionary_word"
-values (103, 4, 'ring', 4, 'кольцо', '/heˈloʊ/', 101);
+values (103, 4, 'ring', 4, 'кольцо', '/rɪŋ/', 101);
 insert into "dictionary_word"
-values (104, 8, 'house', 17, 'дом', '/heˈloʊ/', 101);
+values (104, 8, 'house', 17, 'дом', '/ˈhaʊ.zɪz/', 101);
 insert into "dictionary_word"
-values (105, 0, 'car', 2, 'машина', '/heˈloʊ/', 101);
+values (105, 0, 'car', 2, 'машина', '/kɑːr/', 101);
 
 insert into "dictionary_dictionary_words"
 values (101, 101);

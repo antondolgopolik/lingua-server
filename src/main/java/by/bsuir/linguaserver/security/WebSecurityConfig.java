@@ -48,7 +48,7 @@ public class WebSecurityConfig {
         return http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/auth").permitAll()
+                .requestMatchers("/api/auth", "/api/video-content/**", "/api/language/**", "/api/duo-watch-request/catalog/search").permitAll()
                 .requestMatchers("/api/register", "/api/login").anonymous()
                 .requestMatchers("/api/**", "/ws/**", "/app/**").authenticated()
                 .anyRequest().denyAll()
