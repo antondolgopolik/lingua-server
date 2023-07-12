@@ -14,7 +14,6 @@ import java.util.UUID;
 @Data
 public class VideoContent {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @NotBlank
     private String name;

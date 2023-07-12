@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -37,7 +38,9 @@ public class VideoContentController {
     @GetMapping("/search")
     public CatalogItemPageDto searchVideoContent(@RequestParam(defaultValue = "") String q,
                                                  @RequestParam(defaultValue = "0") String p,
-                                                 @RequestParam(defaultValue = "15") String s) {
+                                                 @RequestParam(defaultValue = "15") String s,
+                                                 @RequestParam(defaultValue = "views") String sortType,
+                                                 Authentication authentication) {
         int page = Integer.parseInt(p);
         int size = Integer.parseInt(s);
         PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.DESC, "prevMonthViews");

@@ -10,7 +10,6 @@ import java.util.UUID;
 @Data
 public class VideoContentLoc {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @ManyToOne
     private VideoContent videoContent;
@@ -18,4 +17,6 @@ public class VideoContentLoc {
     private Language language;
     @OneToMany
     private Collection<Subtitle> subtitles;
+    @OneToMany
+    private Collection<VideoContentLocWord> videoContentLocWords;
 }

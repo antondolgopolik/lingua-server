@@ -20,7 +20,7 @@ public class DictionaryWord {
     @NotBlank
     private String transcription;
     @NotNull
-    private Integer repetitions;
+    private int repetitions;
     @NotNull
-    private Integer correctRepetitions;
+    private int correctRepetitions;
 }

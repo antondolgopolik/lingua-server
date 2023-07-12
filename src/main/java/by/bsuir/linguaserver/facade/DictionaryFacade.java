@@ -5,6 +5,7 @@ import by.bsuir.linguaserver.converter.impl.DictionaryWordToDictionaryWordDtoCon
 import by.bsuir.linguaserver.dto.AddWordToDictionaryFormDto;
 import by.bsuir.linguaserver.dto.DictionaryDto;
 import by.bsuir.linguaserver.dto.DictionaryWordDto;
+import by.bsuir.linguaserver.entity.Dictionary;
 import by.bsuir.linguaserver.entity.DictionaryWord;
 import by.bsuir.linguaserver.repository.DictionaryRepository;
 import by.bsuir.linguaserver.repository.DictionaryWordRepository;
@@ -43,12 +44,16 @@ public class DictionaryFacade {
                 .toList();
     }
 
-    public void addWordToDictionary(AddWordToDictionaryFormDto formDto) {
+    public void addWordToDictionary(Long dictionaryId,
+                                    AddWordToDictionaryFormDto formDto) {
+        Dictionary dictionary = dictionaryRepository.findById(dictionaryId).orElseThrow();
         DictionaryWord dictionaryWord = new DictionaryWord();
-        dictionaryWord.setDictionary(dictionaryRepository.findById(formDto.getDictionaryId()).orElseThrow());
+        dictionaryWord.setDictionary(dictionary);
         dictionaryWord.setFirstLanguageText(formDto.getFirstLanguageText());
         dictionaryWord.setSecondLanguageText(formDto.getSecondLanguageText());
         dictionaryWord.setTranscription(formDto.getTranscription());
         dictionaryWordRepository.save(dictionaryWord);
+        dictionary.getDictionaryWords().add(dictionaryWord);
+        dictionaryRepository.save(dictionary);
     }
 }

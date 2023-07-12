@@ -35,8 +35,9 @@ public class DuoWatchRequestController {
                                                                            @RequestParam(required = false) Long secondLang,
                                                                            @RequestParam(defaultValue = "0") Integer p,
                                                                            @RequestParam(defaultValue = "15") Integer s,
+                                                                           @RequestParam(defaultValue = "views") String sortType,
                                                                            Authentication authentication) {
-        return duoWatchRequestFacade.catalogSearchDuoWatchRequests(authentication.getName(), q, videoContentLang, secondLang, p, s);
+        return duoWatchRequestFacade.catalogSearchDuoWatchRequests(authentication.getName(), q, videoContentLang, secondLang, p, s, sortType);
     }
 
     @GetMapping("/personal/search")

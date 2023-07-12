@@ -2,4 +2,5 @@
 .mvn
 target
 src/main/resources/certs
+src/main/resources/import
 src/main/resources/application.properties

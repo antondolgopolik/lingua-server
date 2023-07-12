@@ -1,6 +1,7 @@
 package by.bsuir.linguaserver.controller;
 
 import by.bsuir.linguaserver.dto.DictionaryWordDto;
+import by.bsuir.linguaserver.dto.TrainingAnswerDto;
 import by.bsuir.linguaserver.facade.TrainingFacade;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -22,5 +23,10 @@ public class TrainingController {
     public List<DictionaryWordDto> prepareTraining(@PathVariable Long dictionaryId,
                                                    @RequestParam Integer size) {
         return trainingFacade.prepareTraining(dictionaryId, size);
+    }
+
+    @PostMapping
+    public void saveTrainingResult(@RequestBody List<TrainingAnswerDto> trainingAnswerDtos) {
+        trainingFacade.saveTrainingResult(trainingAnswerDtos);
     }
 }

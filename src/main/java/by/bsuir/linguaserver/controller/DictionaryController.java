@@ -32,8 +32,9 @@ public class DictionaryController {
         return dictionaryFacade.getDictionaryWords(dictionaryId, principal.getName());
     }
 
-    @PostMapping("/add")
-    public void addWordToDictionary(@RequestBody AddWordToDictionaryFormDto formDto) {
-        dictionaryFacade.addWordToDictionary(formDto);
+    @PostMapping("/{dictionaryId}/words")
+    public void addWordToDictionary(@PathVariable Long dictionaryId,
+                                    @RequestBody AddWordToDictionaryFormDto formDto) {
+        dictionaryFacade.addWordToDictionary(dictionaryId, formDto);
     }
 }

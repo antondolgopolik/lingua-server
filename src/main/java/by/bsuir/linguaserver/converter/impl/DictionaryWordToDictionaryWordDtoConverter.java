@@ -20,6 +20,9 @@ public class DictionaryWordToDictionaryWordDtoConverter implements Converter<Dic
     }
 
     private int getMastery(DictionaryWord object) {
+        if (object.getRepetitions() == 0) {
+            return 0;
+        }
         float temp = object.getCorrectRepetitions();
         temp = temp / object.getRepetitions() * 100;
         return (int) temp;
